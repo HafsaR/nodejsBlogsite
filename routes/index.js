@@ -10,4 +10,8 @@ router.get("/addBlog/", (req, res) => {
   res.render("backend/addBlog", { title: "Add Blog" });
 });
 
+router.get("/listBlog", (req, res) => {
+  res.render("backend/listBlog", { title: "Blog Info" });
+});
+
 module.exports = router;
