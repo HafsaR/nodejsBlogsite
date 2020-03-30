@@ -1,5 +1,68 @@
-extends layout
+extends ./layout.pug
 
 block content
-  h1= title
-  p Welcome to #{title}
+  include ./navbar.pug
+  // / Carousel Star /
+  .intro.intro-carousel
+    #carousel.owl-carousel.owl-theme
+      .carousel-item-a.intro-item.bg-image(style='background-image: url(img/slide-1.jpg)')
+        .overlay.overlay-a
+        .intro-content.display-table
+          .table-cell
+            .container
+              .row
+                .col-lg-8
+                  .intro-body
+                    p.intro-title-top
+                      | Doral, Florida
+                      br
+                      |  78345
+                    h1.intro-title.mb-4
+                      span.color-b 204 
+                      |  Mount
+                      br
+                      |  Olive Road Two
+                    p.intro-subtitle.intro-price
+                      a(href='#')
+                        span.price-a rent | $ 12.000
+      .carousel-item-a.intro-item.bg-image(style='background-image: url(img/slide-2.jpg)')
+        .overlay.overlay-a
+        .intro-content.display-table
+          .table-cell
+            .container
+              .row
+                .col-lg-8
+                  .intro-body
+                    p.intro-title-top
+                      | Doral, Florida
+                      br
+                      |  78345
+                    h1.intro-title.mb-4
+                      span.color-b 204 
+                      |  Rino
+                      br
+                      |  Venda Road Five
+                    p.intro-subtitle.intro-price
+                      a(href='#')
+                        span.price-a rent | $ 12.000
+        .carousel-item-a.intro-item.bg-image(style='background-image: url(img/slide-3.jpg)')
+          .overlay.overlay-a
+          .intro-content.display-table
+            .table-cell
+              .container
+                .row
+                  .col-lg-8
+                    .intro-body
+                      p.intro-title-top
+                        | Doral, Florida
+                        br
+                        |  78345
+                      h1.intro-title.mb-4
+                        span.color-b 204 
+                        |  Alira
+                        br
+                        |  Roan Road One
+                      p.intro-subtitle.intro-price
+                        a(href='#')
+                          span.price-a rent | $ 12.000
+// / Carousel end /
