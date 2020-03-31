@@ -1,0 +1,127 @@
+extends ./layout.pug 
+block content
+    include ./navbar.pug
+    section.intro-single
+        .container 
+            .row 
+                .col-md-12.col-lg-8 
+                    .title-single-box
+                        h1 Blog Name  <span class="color-text-a">News Single.</span>
+                        span.color-text-a Title 
+            section.news-single.nav-arrow-b
+                .container
+                    .row
+                        .col-sm-12
+                            .news-img-box
+                                img.img-fluid(src='images/technology.jpg', alt='')
+                        .col-md-10.offset-md-1.col-lg-8.offset-lg-2
+                            .post-information
+                                ul.list-inline.text-center.color-a
+                                    li.list-inline-item.mr-2
+                                        strong Author: 
+                                         span.color-text-a Morgan Jimenez
+                                    li.list-inline-item.mr-2
+                                        strong Category: 
+                                        span.color-text-a Travel
+                                    li.list-inline-item
+                                        strong Date: 
+                                        span.color-text-a 19 Apr. 2017
+                            .post-content.color-text-a
+                                p.post-intro
+                                    | Sed porttitor lectus nibh. Lorem ipsum dolor sit amet, consectetur
+                                    strong adipiscing
+                                    |  elit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
+                                    |               Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
+                                p
+                                    | Proin eget tortor risus. Donec sollicitudin molestie malesuada. Cras ultricies ligula sed magna dictum
+                                    | porta. Pellentesque
+                                    | in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+                                    | dui. Lorem ipsum dolor sit amet.
+                                p
+                                    | Pellentesque in ipsum id orci porta dapibus. Curabitur non nulla sit amet nisl tempus convallis quis ac
+                                    | lectus. Curabitur
+                                    | non nulla sit amet nisl tempus convallis quis ac lectus. Proin eget tortor risus. Curabitur non
+                                    | nulla sit amet nisl tempus convallis quis ac lectus. Donec rutrum congue leo eget malesuada.
+                                    | Quisque velit nisi.
+                                blockquote.blockquote
+                                    p.mb-4
+                                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            .post-footer
+                                .post-share
+                                    span Share: 
+                                ul.list-inline.socials
+                                li.list-inline-item
+                                    a(href='#')
+                                    i.fa.fa-facebook(aria-hidden='true')
+                                li.list-inline-item
+                                    a(href='#')
+                                    i.fa.fa-twitter(aria-hidden='true')
+                                li.list-inline-item
+                                    a(href='#')
+                                    i.fa.fa-instagram(aria-hidden='true')
+                                li.list-inline-item
+                                    a(href='#')
+                                    i.fa.fa-pinterest-p(aria-hidden='true')
+                        .col-md-10.offset-md-1.col-lg-10.offset-lg-1
+                            .title-box-d
+                                h3.title-d Comments (4)
+                            .box-comments
+                                ul.list-comments
+                                li
+                                    .comment-avatar
+                                    img(src='images/author-2.jpg', alt='')
+                                    .comment-details
+                                    h4.comment-author Emma Stone
+                                    span 18 Sep 2017
+                                    p.comment-description
+                                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
+                                        | ipsam temporibus maiores
+                                        | quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis.
+                                    a(href='3') Reply
+                                li.comment-children
+                                    .comment-avatar
+                                    img(src='images/author-1.jpg', alt='')
+                                    .comment-details
+                                    h4.comment-author Oliver Colmenares
+                                    span 18 Sep 2017
+                                    p.comment-description
+                                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
+                                        | ipsam temporibus maiores
+                                        | quae.
+                                    a(href='3') Reply
+                                li
+                                    .comment-avatar
+                                    img(src='images/author-2.jpg', alt='')
+                                    .comment-details
+                                    h4.comment-author Emma Stone
+                                    span 18 Sep 2017
+                                    p.comment-description
+                                        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
+                                        | ipsam temporibus maiores
+                                        | quae natus libero optio.
+                                    a(href='3') Reply
+                            .form-comments
+                                .title-box-d
+                                h3.title-d  Leave a Reply
+                            form.form-a
+                                .row
+                                    .col-md-6.mb-3
+                                        .form-group
+                                            label(for='inputName') Enter name
+                                            input#inputName.form-control.form-control-lg.form-control-a(type='text', placeholder='Name *', required='')
+                                    .col-md-6.mb-3
+                                        .form-group
+                                            label(for='inputEmail1') Enter email
+                                            input#inputEmail1.form-control.form-control-lg.form-control-a(type='email', placeholder='Email *', required='')
+                                    .col-md-12.mb-3
+                                        .form-group
+                                            label(for='inputUrl') Enter website
+                                            input#inputUrl.form-control.form-control-lg.form-control-a(type='url', placeholder='Website')
+                                    .col-md-12.mb-3
+                                        .form-group
+                                            label(for='textMessage') Enter message
+                                            textarea#textMessage.form-control(placeholder='Comment *', name='message', cols='45', rows='8', required='')
+                                    .col-md-12
+                                        button.btn.btn-a(type='submit') Send Message
+
+    include ./footer.pug

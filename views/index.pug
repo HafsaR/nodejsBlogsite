@@ -1,68 +1,41 @@
 extends ./layout.pug
 
+
 block content
   include ./navbar.pug
-  // / Carousel Star /
-  .intro.intro-carousel
-    #carousel.owl-carousel.owl-theme
-      .carousel-item-a.intro-item.bg-image(style='background-image: url(img/slide-1.jpg)')
-        .overlay.overlay-a
-        .intro-content.display-table
-          .table-cell
-            .container
-              .row
-                .col-lg-8
-                  .intro-body
-                    p.intro-title-top
-                      | Doral, Florida
-                      br
-                      |  78345
-                    h1.intro-title.mb-4
-                      span.color-b 204 
-                      |  Mount
-                      br
-                      |  Olive Road Two
-                    p.intro-subtitle.intro-price
-                      a(href='#')
-                        span.price-a rent | $ 12.000
-      .carousel-item-a.intro-item.bg-image(style='background-image: url(img/slide-2.jpg)')
-        .overlay.overlay-a
-        .intro-content.display-table
-          .table-cell
-            .container
-              .row
-                .col-lg-8
-                  .intro-body
-                    p.intro-title-top
-                      | Doral, Florida
-                      br
-                      |  78345
-                    h1.intro-title.mb-4
-                      span.color-b 204 
-                      |  Rino
-                      br
-                      |  Venda Road Five
-                    p.intro-subtitle.intro-price
-                      a(href='#')
-                        span.price-a rent | $ 12.000
-        .carousel-item-a.intro-item.bg-image(style='background-image: url(img/slide-3.jpg)')
-          .overlay.overlay-a
-          .intro-content.display-table
-            .table-cell
-              .container
-                .row
-                  .col-lg-8
-                    .intro-body
-                      p.intro-title-top
-                        | Doral, Florida
-                        br
-                        |  78345
-                      h1.intro-title.mb-4
-                        span.color-b 204 
-                        |  Alira
-                        br
-                        |  Roan Road One
-                      p.intro-subtitle.intro-price
-                        a(href='#')
-                          span.price-a rent | $ 12.000
-// / Carousel end /
+  #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+    ol.carousel-indicators
+      li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
+      li(data-target='#carouselExampleIndicators', data-slide-to='1')
+      li(data-target='#carouselExampleIndicators', data-slide-to='2')
+    .carousel-inner
+      .carousel-item.active
+        img.d-block.w-100(src='images/tech-savvy.jpg', alt='First slide')
+      .carousel-item
+        img.d-block.w-100(src='images/short-cut.jpg', alt='Second slide')
+      .carousel-item
+        img.d-block.w-100(src='images/technology.jpg', alt='Third slide')
+    a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+      span.carousel-control-prev-icon(aria-hidden='true')
+      span.sr-only Previous
+    a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+      span.carousel-control-next-icon(aria-hidden='true')
+      span.sr-only Next
+    section.section-latest.section-t8
+      .container
+        .row 
+          .col-md-12 
+            .title-wrap.d-flex.justify-content-between
+              .title-box
+                h2.title-a Latest Properties
+        .row 
+          .col-md-4 
+            img(src="images/apple.png",alt="tech")
+            h2 news
+          .col-md-4 
+            img(src="images/apple.png",alt="tech")
+            h2 tech 
+          .col-md-4
+            img(src="images/apple.png",alt="tech") 
+            h2 news
+    include ./footer.pug

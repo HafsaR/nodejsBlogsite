@@ -5,6 +5,20 @@ var router = express.Router();
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Blog Site" });
 });
+router.get("/about", (req, res) => {
+  res.render("about", { title: "About" });
+});
+router.get("/blogSingle", (req, res) => {
+  res.render("blogSingle", { title: "Single blog" });
+});
 
+router.get("/blogGrid", (req, res) => {
+  res.render("blogGrid", { title: "All blogs" });
+});
+
+router.get("/adminLogin", (req, res) => {
+  res.render("backend/adminLogin", { title: "admin" });
+  
+});
 
 module.exports = router;

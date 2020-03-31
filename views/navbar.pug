@@ -5,7 +5,7 @@ nav.navbar.navbar-default.navbar-trans.navbar-expand-lg.fixed-top
       span
       span
       span
-    a.navbar-brand.text-brand(href='index.html')
+    a.navbar-brand.text-brand(href='/')
       | Blog
       span.color-b Site
     button.btn.btn-link.nav-search.navbar-toggle-box-collapse.d-md-none(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo01', aria-expanded='false')
@@ -13,23 +13,17 @@ nav.navbar.navbar-default.navbar-trans.navbar-expand-lg.fixed-top
     #navbarDefault.navbar-collapse.collapse.justify-content-center
       ul.navbar-nav
         li.nav-item
-          a.nav-link.active(href='index.html') Home
+          a.nav-link.active(href='/') Home
         li.nav-item
-          a.nav-link(href='about.html') About
-        li.nav-item
-          a.nav-link(href='property-grid.html') Property
-        li.nav-item
-          a.nav-link(href='blog-grid.html') Blog
+          a.nav-link(href='/blogGrid') Blog
         li.nav-item.dropdown
           a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
             | Pages
           .dropdown-menu(aria-labelledby='navbarDropdown')
-            a.dropdown-item(href='property-single.html') Property Single
-            a.dropdown-item(href='blog-single.html') Blog Single
+            a.dropdown-item(href='/blogSingle') Blog Single
             a.dropdown-item(href='agents-grid.html') Agents Grid
             a.dropdown-item(href='agent-single.html') Agent Single
         li.nav-item
-          a.nav-link(href='contact.html') Contact
-    button.btn.btn-b-n.navbar-toggle-box-collapse.d-none.d-md-block(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo01', aria-expanded='false')
-      span.fa.fa-search(aria-hidden='true')
+          a.nav-link(href='/about') Contact
+   
 // / Nav End /
