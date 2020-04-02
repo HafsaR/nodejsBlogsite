@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/adminLogin", indexRouter);
+app.use("/adminLogin", adminRouter);
 app.use("/admin", adminRouter);
 app.use("/addBlog/", adminRouter);
 app.use("/listBlog", adminRouter);

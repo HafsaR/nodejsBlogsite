@@ -32,3 +32,9 @@ footer a{
   color: black;
   
 }
+#footer {
+  position : absolute;
+  bottom : 0;
+  height : 40px;
+  margin-top : 40px;
+}
