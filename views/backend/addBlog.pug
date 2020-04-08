@@ -14,17 +14,17 @@ block content
                                     | Upload
                                     | image
                                 .col-sm-10
-                                    input#input-file-now-custom-1.dropify(type='file', data-default-file='../assets/plugins/dropify/images/1.jpg')
+                                    input#input-file-now-custom-1.dropify(type='file', data-default-file='images/apple.png')
                             .form-group.row
                                 label.col-sm-2.col-form-label(for='title') Title
                                 .col-sm-10
-                                    input#title.form-control(type='text', placeholder='Title')
+                                    input#title.form-control(type='text',name='title', placeholder='Title')
                             .form-group.row
                                 label.col-sm-2.col-form-label(for='description') Description
                                 .col-sm-10
-                                    textarea#description.form-control(rows='3')
+                                    textarea#description.form-control(rows='3',name='desription')
                             .row
                                 .col-sm-10.ml-auto
-                                    button.btn.btn-primary(type='submit') Submit
-                                    button.btn.btn-danger(type='button') Cancel 
+                                    button.btn.btn-primary.btn-space(type='submit') Submit 
+                                    button.btn.btn-danger.btn-space(type='button') Cancel 
     include ./footer.pug

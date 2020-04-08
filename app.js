@@ -4,6 +4,7 @@ var app = express();
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var blogController = require("./controller/addBlog");
 
 var adminRouter = require("./routes/admin/adminIndex");
 var indexRouter = require("./routes/index");
@@ -11,7 +12,7 @@ var indexRouter = require("./routes/index");
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
-app.disable('etag');
+app.disable("etag");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -19,23 +20,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/adminLogin", adminRouter);
-app.use("/admin", adminRouter);
-app.use("/addBlog/", adminRouter);
-app.use("/listBlog", adminRouter);
-
-app.use("/", indexRouter);
-app.use("/about", indexRouter);
-app.use("/blogSingle", indexRouter);
-app.use("blogGrid", indexRouter);
+//app.use("/adminLogin", blogController);
+// app.use("/admin", adminRouter);
+// app.use("/addBlog/", adminRouter);
+// app.use("/listBlog", adminRouter);
+app.use("/", blogController);
+// app.use("/about", indexRouter);
+// app.use("/blogSingle", indexRouter);
+// app.use("blogGrid", indexRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
