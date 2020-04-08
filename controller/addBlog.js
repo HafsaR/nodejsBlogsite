@@ -43,12 +43,11 @@ router.get("/listBlog", (req, res) => {
 });
 
 router.post("/adminLogin", urlencodedparser, (req, res) => {
-  var login = new adminLogin();
-  login.username = req.body.username;
-  login.password = req.body.password;
-  login.save((err, doc) => {
+  var data = req.body;
+  adminLogin.create(data, (err, doc) => {
     if (!err) {
-      console.log("successful");
+      console.log("record inserted");
+      res.status(200).json(doc);
     } else console.log("Errors during record insertion : " + err);
   });
 });
