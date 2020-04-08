@@ -8,7 +8,6 @@ const blogModel = require("../models/blog.model");
 const adminLogin = mongoose.model("adminLogin");
 
 router.get("/", (req, res) => {
-  //res.send("data connected");
   res.render("index", { title: "Blog site" });
 });
 router.get("/adminLogin", (req, res) => {
@@ -49,7 +48,7 @@ router.post("/adminLogin", urlencodedparser, (req, res) => {
   login.password = req.body.password;
   login.save((err, doc) => {
     if (!err) {
-      console.log();
+      console.log("successful");
     } else console.log("Errors during record insertion : " + err);
   });
 });
