@@ -59,4 +59,17 @@ router.post("/adminLogin",urlencodedparser, (req, res) => {
     }
   });
 });
+
+
+router.get("/about", (req, res) => {
+  res.render("about", { title: "About" });
+});
+router.get("/blogSingle", (req, res) => {
+  res.render("blogSingle", { title: "Single blog" });
+});
+
+router.get("/blogGrid", (req, res) => {
+  res.render("blogGrid", { title: "All blogs" });
+});
+
 module.exports = router;
