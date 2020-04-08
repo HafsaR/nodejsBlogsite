@@ -20,14 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-//app.use("/adminLogin", blogController);
-// app.use("/admin", adminRouter);
-// app.use("/addBlog/", adminRouter);
-// app.use("/listBlog", adminRouter);
 app.use("/", blogController);
-// app.use("/about", indexRouter);
-// app.use("/blogSingle", indexRouter);
-// app.use("blogGrid", indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
