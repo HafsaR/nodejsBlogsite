@@ -16,13 +16,15 @@ var blogSchema = mongoose.Schema({
 
 var adminSchema = mongoose.Schema({
   username: {
-    type: String
-   // require: "username is required",
+    type: String,
+    // require: "username is required",
   },
   password: {
-    type: String
+    type: String,
     //require: "password is required",
   },
 });
 
-mongoose.model("blogModel", adminSchema, blogSchema);
+module.exports=mongoose.model("blogModel", blogSchema);
+module.exports=mongoose.model("adminLogin", adminSchema);
+
