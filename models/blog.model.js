@@ -25,6 +25,7 @@ var adminSchema = mongoose.Schema({
   },
 });
 
-module.exports=mongoose.model("blogModel", blogSchema);
-module.exports=mongoose.model("adminLogin", adminSchema);
-
+module.exports = {
+  blogModel: mongoose.model("blogModel", blogSchema),
+  adminModel: mongoose.model("adminLogin", adminSchema),
+};

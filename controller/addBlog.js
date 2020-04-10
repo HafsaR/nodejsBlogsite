@@ -4,8 +4,9 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const urlencodedparser = bodyParser.urlencoded({ extended: false });
 const mongoose = require("mongoose");
-const blogModel = require("../models/blog.model");
-const adminLogin = mongoose.model("adminLogin");
+
+const blogModel = require("../models/blog.model").blogModel;
+const adminModel = require("../models/blog.model").adminModel;
 
 router.get("/", (req, res) => {
   res.render("index", { title: "Blog site" });
@@ -44,9 +45,8 @@ router.get("/listBlog", (req, res) => {
 
 router.post("/adminLogin", urlencodedparser, (req, res) => {
   var data = req.body;
-  adminLogin.create(data, (err, doc) => {
-    if (!err) {
-      console.log("record inserted");
+  adminModel.create(data, (err, doc) => {
+    if (!err) {      console.log("record inserted");
       res.status(200).json(doc);
     } else console.log("Errors during record insertion : " + err);
   });
