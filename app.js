@@ -9,6 +9,8 @@ var blogController = require("./controller/addBlog");
 
 var bodyParser = require("body-parser");
 
+const PORT = 3000;
+
 app.use(
   session({
     secret: "secret",
@@ -48,6 +50,11 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
+});
+
+
+app.listen(PORT, () => {
+  console.log("server running on PORT " + PORT);
 });
 
 module.exports = app;
