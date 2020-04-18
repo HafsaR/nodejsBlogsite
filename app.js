@@ -1,4 +1,4 @@
-require('./models/db');
+require("./models/db");
 var createError = require("http-errors");
 var express = require("express");
 var app = express();
@@ -10,7 +10,7 @@ var blogController = require("./controller/addBlog");
 
 var bodyParser = require("body-parser");
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
 app.use(
   session({
@@ -52,7 +52,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-
 
 app.listen(PORT, () => {
   console.log("server running on PORT " + PORT);
