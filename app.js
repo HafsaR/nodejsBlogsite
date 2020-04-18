@@ -9,7 +9,7 @@ var blogController = require("./controller/addBlog");
 
 var bodyParser = require("body-parser");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000
 
 app.use(
   session({
