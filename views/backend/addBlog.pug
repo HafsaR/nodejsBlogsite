@@ -17,13 +17,17 @@ block content
                                     //- input(type="hidden",name="_id",value="#{blogModel._id}")
                                     input#input-file-now-custom-1.dropify(type='file',name='image',value='#{blogModel.image}')
                             .form-group.row 
+                                label.col-sm-2.col-form-label(for='category') Category
+                                .col-sm-10
+                                    input#title.form-control(type='text',name='category',placeholder="Category",value='#{blogModel.category}')
+                            .form-group.row 
                                 label.col-sm-2.col-form-label(for='title') Title
                                 .col-sm-10
-                                    input#title.form-control(type='text',name='title',value='#{blogModel.title}')
+                                    input#title.form-control(type='text',name='title',value='#{blogModel.title}',placeholder="Title")
                             .form-group.row
                                 label.col-sm-2.col-form-label(for='description') Description
                                 .col-sm-10
-                                    textarea#description.form-control(rows='3',name='description',value='#{blogModel.description}')
+                                    textarea#description.form-control(rows='3',name='description',value='#{blogModel.description}',placeholder="Description")
                             .row
                                 .col-sm-10.ml-auto
                                     button.btn.btn-primary.btn-space(type='submit') Submit 

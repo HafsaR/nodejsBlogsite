@@ -1,0 +1,32 @@
+extends ./layout.pug 
+block content 
+    include ./navbar.pug 
+    h1 Message
+    .row
+        .col-12
+            .card
+                .card-body
+                    h4.mt-0.header-title Inquiry
+                    p.text-muted.mb-3
+                   
+                table#datatable.table.table-bordered.dt-responsive.nowrap(style='border-collapse: collapse; border-spacing: 0; width: 100%;')
+                    thead
+                        tr
+                            th Name
+                            th Subject
+                            th Message
+                            th Action
+                    tbody
+                        each value in message
+                            tr
+                                td= value.name
+                                td= value.subject 
+                                td= value.message
+                                td
+                                    a.btn.btn-primary.btn-reply(href="mailto:"+value.email)
+                                    |  Reply
+                                    i.fa.fa-reply
+                                    a.btn.btn-danger.waves-effect.waves-light(href='/inquiry/delete/'+value._id, onclick="return confirm('Are you sure to delete this record ?');")
+                                    |  Delete
+                                    i.mdi.mdi-delete
+                                    

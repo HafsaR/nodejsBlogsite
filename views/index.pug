@@ -8,11 +8,11 @@ block content
       li(data-target='#carouselExampleIndicators', data-slide-to='2')
     .carousel-inner
       .carousel-item.active
-        img.d-block.w-100(src='images/tech-savvy.jpg', alt='First slide')
+        img.d-block.w-100(src='images/img1.jpg', alt='First slide')
       .carousel-item
-        img.d-block.w-100(src='images/short-cut.jpg', alt='Second slide')
+        img.d-block.w-100(src='images/img2.jpg', alt='Second slide')
       .carousel-item
-        img.d-block.w-100(src='images/technology.jpg', alt='Third slide')
+        img.d-block.w-100(src='images/img3.jpg', alt='Third slide')
     a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
       span.carousel-control-prev-icon(aria-hidden='true')
       span.sr-only Previous
@@ -25,15 +25,35 @@ block content
           .col-md-12 
             .title-wrap.d-flex.justify-content-between
               .title-box
-                h2.title-a Latest Properties
-        .row 
-          .col-md-4 
-            img(src="images/apple.png",alt="tech")
-            h2 news
-          .col-md-4 
-            img(src="images/apple.png",alt="tech")
-            h2 tech 
-          .col-md-4
-            img(src="images/apple.png",alt="tech") 
-            h2 news
+                h2.title-a Latest Blog 
+    section.news-grid.grid 
+        .container 
+            .row
+             each val in blogModel 
+                .col-md-4 
+                   .card-box-b.card-shadow.news-box
+                            .img-box-b
+                                img.img-b.img-fluid(src="images/apple.png", alt='')
+                            .card-overlay
+                                .card-header-b
+                                    .card-category-b
+                                    - console.log(val.title)
+                                        a.category-b(href='#') #{val.category}
+                                    .card-title-bs
+                                        h2.title-2
+                                            a(href='/blogSingle/'+val._id)
+                                                | #{val.title}
+                                                br
+                                                |  new
+                                    .card-date
+                                    - console.log('date',val.date)
+                                    -const months = ['January','February', 'March','April','May','June','July','August','September','October','November','December']
+                                    -let date = val.date;
+                                    -let year = date.getFullYear()
+                                    -let monthIndex = date.getMonth()
+                                    -let day = date.getDate()
+                                    -const monthName = months[monthIndex]
+                                    -const formatted = `${day } ${monthName} ${year}`
+                                    -console.log(formatted) 
+                                        span.date-b= formatted
     include ./footer.pug

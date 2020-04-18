@@ -1,11 +1,25 @@
 var createError = require("http-errors");
 var express = require("express");
 var app = express();
+var session = require("express-session");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var blogController = require("./controller/addBlog");
 
+var bodyParser = require("body-parser");
+
+app.use(
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+// set up BodyParser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -19,7 +33,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", blogController);
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

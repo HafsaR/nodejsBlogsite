@@ -7,106 +7,35 @@ block content
                 .col-md-12.col-lg-8
                     .title-single-box
                         h1.title-single Our Blog Posts
-                        span.color-text-a Grid blog 
+                        span.color-text-a 
     section.news-grid.grid 
         .container 
-            .row 
+            .row
+             each val in list 
                 .col-md-4 
-                    .card-box-b.card-shadow.news-box
-                        .img-box-b
-                            img.img-b.img-fluid(src='images/post-1.jpg', alt='')
-                        .card-overlay
-                            .card-header-b
-                                .card-category-b
-                                    a.category-b(href='#') Travel
-                                .card-title-b
-                                    h2.title-2
-                                        a(href='/blogSingle')
-                                            | Travel is comming
-                                            br
-                                            |  new
-                                .card-date
-                                    span.date-b 18 Sep. 2017 
-                .col-md-4 
-                    .card-box-b.card-shadow.news-box
-                        .img-box-b
-                            img.img-b.img-fluid(src='images/post-1.jpg', alt='')
-                        .card-overlay
-                            .card-header-b
-                                .card-category-b
-                                    a.category-b(href='#') Travel
-                                .card-title-b
-                                    h2.title-2
-                                        a(href='/blogSingle')
-                                            | Travel is comming
-                                            br
-                                            |  new
-                                .card-date
-                                    span.date-b 18 Sep. 2017 
-                .col-md-4 
-                    .card-box-b.card-shadow.news-box
-                        .img-box-b
-                            img.img-b.img-fluid(src='images/post-1.jpg', alt='')
-                        .card-overlay
-                            .card-header-b
-                                .card-category-b
-                                    a.category-b(href='#') Travel
-                                .card-title-b
-                                    h2.title-2
-                                        a(href='/blogSingle')
-                                            | Travel is comming
-                                            br
-                                            |  new
-                                .card-date
-                                    span.date-b 18 Sep. 2017 
-                .col-md-4 
-                    .card-box-b.card-shadow.news-box
-                        .img-box-b
-                            img.img-b.img-fluid(src='images/post-1.jpg', alt='')
-                        .card-overlay
-                            .card-header-b
-                                .card-category-b
-                                    a.category-b(href='#') Travel
-                                .card-title-b
-                                    h2.title-2
-                                        a(href='/blogSingle')
-                                            | Travel is comming
-                                            br
-                                            |  new
-                                .card-date
-                                    span.date-b 18 Sep. 2017
-                .col-md-4 
-                    .card-box-b.card-shadow.news-box
-                        .img-box-b
-                            img.img-b.img-fluid(src='images/post-1.jpg', alt='')
-                        .card-overlay
-                            .card-header-b
-                                .card-category-b
-                                    a.category-b(href='#') Travel
-                                .card-title-b
-                                    h2.title-2
-                                        a(href='/blogSingle')
-                                            | Travel is comming
-                                            br
-                                            |  new
-                                .card-date
-                                    span.date-b 18 Sep. 2017 
-                .col-md-4 
-                    .card-box-b.card-shadow.news-box
-                        .img-box-b
-                            img.img-b.img-fluid(src='images/post-1.jpg', alt='')
-                        .card-overlay
-                            .card-header-b
-                                .card-category-b
-                                    a.category-b(href='#') Travel
-                                .card-title-b
-                                    h2.title-2
-                                        a(href='/blogSingle')
-                                            | Travel is comming
-                                            br
-                                            |  new
-                                .card-date
-                                    span.date-b 18 Sep. 2017 
+                   .card-box-b.card-shadow.news-box
+                            .img-box-b
+                                img.img-b.img-fluid(src="images/apple.png", alt='')
+                            .card-overlay
+                                .card-header-b
+                                    .card-category-b
+                                    - console.log(val.title)
+                                        a.category-b(href='#') #{val.category}
+                                    .card-title-bs
+                                        h2.title-2
+                                            a(href='/blogSingle/'+val._id)
+                                                | #{val.title}
+                                                br
+                                                |  new
+                                    .card-date
+                                    -const months = ['January','February', 'March','April','May','June','July','August','September','October','November','December']
+                                    -let date = val.date;
+                                    -let year = date.getFullYear()
+                                    -let monthIndex = date.getMonth()
+                                    -let day = date.getDate()
+                                    -const monthName = months[monthIndex]
+                                    -const formatted = `${day } ${monthName} ${year}`
+                                        span.date-b= formatted 
             .row 
                 .col-sm-12
                     nav.pagination-a
@@ -122,7 +51,7 @@ block content
                                 a.page-link(href='#') 3
                             li.page-item.next
                                 a.page-link(href='#')
-                                    span.ion-ios-arrow-forward
+                                    span.ion-ios-arrow-forward 
     include ./footer.pug
 
                 

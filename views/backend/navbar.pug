@@ -1,4 +1,4 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     a.navbar-brand(href='/admin') Blog
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
@@ -12,20 +12,12 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
                 .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
                     a.dropdown-item(href='/addBlog/') Add Blog
                     a.dropdown-item(href='/listBlog') LIst Blog
-            li.nav-item.dropdown
-                a.nav-link.dropdown-toggle(id='navbarDropdownMenuLink', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') News
-                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                    a.dropdown-item(href='/addNews') Add news
-                    a.dropdown-item(href='/listNews') List news
-            li.nav-item.dropdown
-                a.nav-link.dropdown-toggle(id='navbarDropdownMenuLink', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') What's new
-                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                    a.dropdown-item(href='#') Add 
-                    a.dropdown-item(href='#') list 
+            li.nav-item
+                a.nav-link(href='/inquiry') Inquiry
         ul.navbar-nav.float-right
             li.nav-item
-                a.nav-link(href='/login') Login
-            li.nav-item.dropdown
-                a.nav-link.dropdown-toggle(id='navbarDropdownMenuLink', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Accounts
-                .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-                    a.dropdown-item(href='#') Setting
+                a.nav-link(href='/logout') Logout
+            //- li.nav-item.dropdown
+            //-     a.nav-link.dropdown-toggle(id='navbarDropdownMenuLink', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Accounts
+            //-     .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+            //-         a.dropdown-item(href='#') Setting

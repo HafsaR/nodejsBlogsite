@@ -1,5 +1,26 @@
 extends ./layout.pug 
 block content
     include ./navbar.pug
-    p HOME 
+    .row
+        .col
+            .card(style='width: 18rem;')
+                img.card-img-top(src='images/pink_card.png', alt='Add Blog')
+                .card-body
+                    h5.card-title Add Blog
+                    p.card-text
+                    a.btn.btn-primary(href='/addBlog/') Go
+        .col
+            .card(style='width: 18rem;')
+                img.card-img-top(src='images/pink_card.png', alt='List Blog')
+                .card-body
+                    h5.card-title List Blog
+                    p.card-text
+                    a.btn.btn-primary(href='/listBlog') Go  
+        .col
+            .card(style='width: 18rem;')
+                img.card-img-top(src='images/pink_card.png', alt='List Blog')
+                .card-body
+                    h5.card-title User Inquiry
+                    p.card-text
+                    a.btn.btn-primary(href='/inquiry') Go  
     include ./footer.pug
