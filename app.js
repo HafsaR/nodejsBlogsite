@@ -1,3 +1,4 @@
+require('./models/db');
 var createError = require("http-errors");
 var express = require("express");
 var app = express();
