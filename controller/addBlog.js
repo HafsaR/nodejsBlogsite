@@ -174,34 +174,26 @@ router.get("/blogSingle/:id", (req, res) => {
     }
   });
 
-  commentModel.find(
-    {
-      $where: () => {
-        console.log("id..........", this.blogID, filter);
-        return this.blogID == filter;
-      },
-    },
-    (err, docs) => {
-      if (!err) {
-        c = docs;
-        let count = c.length;
-        blogModel.findById(filter, (err, doc) => {
-          if (!err) {
-            res.render("blogSingle", {
-              title: "Blog",
-              blogModel: doc,
-              comment: c,
-              commentCount: count,
-            });
-          } else {
-            console.log("error ", err);
-          }
-        });
-      } else {
-        console.log("error finding record", err);
-      }
+  commentModel.find((err, docs) => {
+    if (!err) {
+      c = docs;
+      let count = c.length;
+      blogModel.findById(filter, (err, doc) => {
+        if (!err) {
+          res.render("blogSingle", {
+            title: "Blog",
+            blogModel: doc,
+            comment: c,
+            commentCount: count,
+          });
+        } else {
+          console.log("error ", err);
+        }
+      });
+    } else {
+      console.log("error finding record", err);
     }
-  );
+  });
 });
 
 router.get("/blogGrid", (req, res) => {
