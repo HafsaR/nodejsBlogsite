@@ -7,11 +7,11 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var blogController = require("./controller/addBlog");
-const dotenv = require('dotenv')
+const dotenv = require("dotenv");
 
 var bodyParser = require("body-parser");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
 app.use(
   session({
