@@ -8,6 +8,27 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 var JSAlert = require("js-alert");
 const ObjectID = require("mongodb").ObjectID;
+const path = require("path");
+const fs = require("fs");
+
+var multer = require("multer");
+
+var storage = multer.diskStorage({
+  destination: "./public/uploads/",
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+const uploads = multer({
+  storage: storage,
+}).single("image");
+
+const handleError = (err, res) => {
+  res.status(500).contentType("text/plain").end("Oops! Something went wrong!");
+};
 
 const blogModel = require("../models/blog.model").blogModel;
 const adminModel = require("../models/blog.model").adminModel;
@@ -18,7 +39,6 @@ router.get("/", (req, res) => {
   var query = blogModel.find().sort({ $natural: 1 }).limit(3);
   query.exec((err, result) => {
     if (!err) {
-      console.log("doc", result);
       res.render("index", { title: "Blog site", blogModel: result });
     } else {
       console.log("error", err);
@@ -26,12 +46,22 @@ router.get("/", (req, res) => {
   });
 });
 router.get("/adminLogin", (req, res) => {
-  res
-    .status(200)
-    .render("backend/adminLogin", { title: "Admin Login", error: " " });
+  if (req.session.loggedin) {
+    res
+      .status(200)
+      .render("backend/index", { title: "Admin Login", error: " " });
+  } else {
+    res
+      .status(200)
+      .render("backend/adminLogin", { title: "Admin Login", error: " " });
+  }
 });
 
 router.post("/auth", (req, res) => {
+  if(req.session.loggedin){
+    res.render("backend/index", { success: "Login Successful!" });
+    
+  }
   var username = req.body.username;
   var password = req.body.password;
   if (username && password) {
@@ -57,14 +87,25 @@ router.post("/auth", (req, res) => {
 });
 
 router.get("/admin", function (req, res, next) {
-  res.render("backend/index", { title: "Admin Site" });
+  if (req.session.loggedin) {
+    res.render("backend/index", { title: "Admin Site" });
+  } else {
+    res.render("backend/adminLogin", {
+      title: "Admin Site",
+      error: "Please Login",
+    });
+  }
 });
 router.get("/logout", function (req, res) {
   req.session.destroy();
   res.redirect("/adminLogin");
 });
 router.get("/addBlog/", (req, res) => {
-  res.render("backend/addBlog", { title: "Add Blog" });
+  if (req.session.loggedin) {
+    res.render("backend/addBlog", { title: "Admin Site" });
+  } else {
+    res.render("backend/addBlog", { title: "Admin Site" });
+  }
 });
 
 router.post("/addBlog/", urlencodedparser, (req, res) => {
@@ -268,7 +309,6 @@ function message(docs) {
 }
 
 function insertRecord(req, res) {
-  // let date = { date: new Date(Date.now()) };
   let data = {
     blogID: req.body.id,
     image: req.body.image,
@@ -277,6 +317,7 @@ function insertRecord(req, res) {
     description: req.body.description,
     date: new Date(Date.now()),
   };
+  console.log("d", data);
   blogModel.create(data, (err, doc) => {
     if (!err) {
       console.log("data inserted");
