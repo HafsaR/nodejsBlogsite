@@ -1,26 +1,26 @@
-(function($) {
+(function ($) {
   ("use strict");
 
   // Preloader
-  $(window).on("load", function() {
+  $(window).on("load", function () {
     if ($("#preloader").length) {
       $("#preloader")
         .delay(100)
-        .fadeOut("slow", function() {
+        .fadeOut("slow", function () {
           $(this).remove();
         });
     }
   });
 
   // Back to top button
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
       $(".back-to-top").fadeIn("slow");
     } else {
       $(".back-to-top").fadeOut("slow");
     }
   });
-  $(".back-to-top").click(function() {
+  $(".back-to-top").click(function () {
     $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
     return false;
   });
@@ -42,58 +42,46 @@
     nav: true,
     navText: [
       '<i class="ion-ios-arrow-back" aria-hidden="true"></i>',
-      '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'
+      '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>',
     ],
     autoplay: true,
     autoplayTimeout: 3000,
-    autoplayHoverPause: true
+    autoplayHoverPause: true,
   });
 
   /*--/ Animate Carousel /--*/
-  $(".intro-carousel").on("translate.owl.carousel", function() {
-    $(".intro-content .intro-title")
-      .removeClass("zoomIn animated")
-      .hide();
-    $(".intro-content .intro-price")
-      .removeClass("fadeInUp animated")
-      .hide();
+  $(".intro-carousel").on("translate.owl.carousel", function () {
+    $(".intro-content .intro-title").removeClass("zoomIn animated").hide();
+    $(".intro-content .intro-price").removeClass("fadeInUp animated").hide();
     $(".intro-content .intro-title-top, .intro-content .spacial")
       .removeClass("fadeIn animated")
       .hide();
   });
 
-  $(".intro-carousel").on("translated.owl.carousel", function() {
-    $(".intro-content .intro-title")
-      .addClass("zoomIn animated")
-      .show();
-    $(".intro-content .intro-price")
-      .addClass("fadeInUp animated")
-      .show();
+  $(".intro-carousel").on("translated.owl.carousel", function () {
+    $(".intro-content .intro-title").addClass("zoomIn animated").show();
+    $(".intro-content .intro-price").addClass("fadeInUp animated").show();
     $(".intro-content .intro-title-top, .intro-content .spacial")
       .addClass("fadeIn animated")
       .show();
   });
 
   $(".carousel").carousel({
-    interval: 2000
+    interval: 2000,
   });
 
   /*--/ Navbar Collapse /--*/
-  $(".navbar-toggle-box-collapse").on("click", function() {
-    $("body")
-      .removeClass("box-collapse-closed")
-      .addClass("box-collapse-open");
+  $(".navbar-toggle-box-collapse").on("click", function () {
+    $("body").removeClass("box-collapse-closed").addClass("box-collapse-open");
   });
-  $(".close-box-collapse, .click-closed").on("click", function() {
-    $("body")
-      .removeClass("box-collapse-open")
-      .addClass("box-collapse-closed");
+  $(".close-box-collapse, .click-closed").on("click", function () {
+    $("body").removeClass("box-collapse-open").addClass("box-collapse-closed");
     $(".menu-list ul").slideUp(700);
   });
 
   /*--/ Navbar Menu Reduce /--*/
   $(window).trigger("scroll");
-  $(window).bind("scroll", function() {
+  $(window).bind("scroll", function () {
     var pixels = 50;
     var top = 1200;
     if ($(window).scrollTop() > pixels) {
@@ -116,16 +104,23 @@
     margin: 30,
     responsive: {
       0: {
-        items: 1
+        items: 1,
       },
       769: {
-        items: 2
+        items: 2,
       },
       992: {
-        items: 3
-      }
-    }
+        items: 3,
+      },
+    },
   });
+
+  //link active
+  $(".navbarDefault .nav-link").on("click", function () {
+    $(".nav").find(".active").removeClass("active");
+    $(this).addClass("active");
+  });
+
 
   /*--/ Property owl owl /--*/
   $("#property-single-carousel").owlCarousel({
@@ -134,13 +129,13 @@
     nav: true,
     navText: [
       '<i class="ion-ios-arrow-back" aria-hidden="true"></i>',
-      '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'
+      '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>',
     ],
     responsive: {
       0: {
-        items: 1
-      }
-    }
+        items: 1,
+      },
+    },
   });
 
   /*--/ News owl /--*/
@@ -149,18 +144,16 @@
     margin: 30,
     responsive: {
       0: {
-        items: 1
+        items: 1,
       },
       769: {
-        items: 2
+        items: 2,
       },
       992: {
-        items: 3
-      }
-    }
+        items: 3,
+      },
+    },
   });
-
-  
 
   /*--/ Testimonials owl /--*/
   $("#testimonial-carousel").owlCarousel({
@@ -171,14 +164,14 @@
     animateIn: "fadeInUp",
     navText: [
       '<i class="ion-ios-arrow-back" aria-hidden="true"></i>',
-      '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'
+      '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>',
     ],
     autoplayTimeout: 4000,
     autoplayHoverPause: true,
     responsive: {
       0: {
-        items: 1
-      }
-    }
+        items: 1,
+      },
+    },
   });
 })(jQuery);

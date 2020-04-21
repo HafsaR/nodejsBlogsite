@@ -6,7 +6,7 @@ block content
             .card
                 .card-body
                     .general-label
-                        form(method="POST",action="/addBlog/",enctype="multipart/form-data")
+                        form(method="POST",action="/addBlog/")
                             h4.mt-0.header-title File Upload 
                             p.text-muted.mb-3 
                             .form-group.row
@@ -14,7 +14,6 @@ block content
                                     | Upload
                                     | image
                                 .col-sm-10
-                                    //- input(type="hidden",name="_id",value="#{blogModel._id}")
                                     input#input-file-now-custom-1.dropify(type='file',name='image',value='#{blogModel.image}')
                             .form-group.row 
                                 label.col-sm-2.col-form-label(for='category') Category

@@ -3,32 +3,31 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 const bodyParser = require("body-parser");
-const urlencodedparser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const mongoose = require("mongoose");
 const session = require("express-session");
-var JSAlert = require("js-alert");
 const ObjectID = require("mongodb").ObjectID;
 const path = require("path");
 const fs = require("fs");
 
-var multer = require("multer");
+// var multer = require("multer");
 
-var storage = multer.diskStorage({
-  destination: "./public/uploads/",
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
-const uploads = multer({
-  storage: storage,
-}).single("image");
+// var storage = multer.diskStorage({
+//   destination: "./public/uploads/",
+//   filename: function (req, file, cb) {
+//     cb(
+//       null,
+//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+//     );
+//   },
+// });
+// const uploads = multer({
+//   storage: storage,
+// }).single("image");
 
-const handleError = (err, res) => {
-  res.status(500).contentType("text/plain").end("Oops! Something went wrong!");
-};
+// const handleError = (err, res) => {
+//   res.status(500).contentType("text/plain").end("Oops! Something went wrong!");
+// };
 
 const blogModel = require("../models/blog.model").blogModel;
 const adminModel = require("../models/blog.model").adminModel;
@@ -58,9 +57,8 @@ router.get("/adminLogin", (req, res) => {
 });
 
 router.post("/auth", (req, res) => {
-  if(req.session.loggedin){
+  if (req.session.loggedin) {
     res.render("backend/index", { success: "Login Successful!" });
-    
   }
   var username = req.body.username;
   var password = req.body.password;
@@ -70,19 +68,14 @@ router.post("/auth", (req, res) => {
       (req.session.username = "admin"),
         res.render("backend/index", { success: "Login Successful!" });
     } else {
-      console.log("Incorrect username and password");
-      JSAlert.alert("Incorrect username and password");
       res.render("backend/adminLogin", {
         error: "Incorrect username and password!",
       });
     }
-    //  res.end();
   } else {
-    console.log("Please enter Username and password");
     res.render("backend/adminLogin", {
       error: "Please enter Username and Password!",
     });
-    // res.end();
   }
 });
 
@@ -108,8 +101,24 @@ router.get("/addBlog/", (req, res) => {
   }
 });
 
-router.post("/addBlog/", urlencodedparser, (req, res) => {
-  insertRecord(req, res);
+router.post("/addBlog/", urlencodedParser, (req, res) => {
+  let data = {
+    blogID: req.body.id,
+    image: req.body.image,
+    category: req.body.category,
+    title: req.body.title,
+    description: req.body.description,
+    date: new Date(Date.now()),
+  };
+  console.log("d", data);
+  blogModel.create(data, (err, doc) => {
+    if (!err) {
+      console.log("data inserted");
+      res.redirect("/listBlog");
+    } else {
+      console.log("error during data insert" + err);
+    }
+  });
 });
 router.post("/addBlog/:id", (req, res) => {
   updateRecord(req, res);
@@ -260,7 +269,7 @@ router.get("/listBlog/delete/:id", (req, res) => {
   });
 });
 
-router.post("/blogSingle/:id/comment", urlencodedparser, (req, res) => {
+router.post("/blogSingle/:id/comment", urlencodedParser, (req, res) => {
   let bId = req.params.id;
   console.log(bId);
   console.log(req.body);
@@ -283,7 +292,7 @@ router.post("/blogSingle/:id/comment", urlencodedparser, (req, res) => {
   });
 });
 
-router.post("/contact", urlencodedparser, (req, res) => {
+router.post("/contact", urlencodedParser, (req, res) => {
   let data = req.body;
   contactModel.create(data, (err, result) => {
     if (err) {
