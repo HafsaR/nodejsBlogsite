@@ -8,8 +8,6 @@ nav.navbar.navbar-default.navbar-trans.navbar-expand-lg.fixed-top
     a.navbar-brand.text-brand(href='/')
       | Blog
       span.color-b Site
-    button.btn.btn-link.nav-search.navbar-toggle-box-collapse.d-md-none(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo01', aria-expanded='false')
-      span.fa.fa-search(aria-hidden='true')
     #navbarDefault.navbar-collapse.collapse.justify-content-center
       ul.navbar-nav
         li.nav-item
@@ -25,9 +23,12 @@ nav.navbar.navbar-default.navbar-trans.navbar-expand-lg.fixed-top
             //- a.dropdown-item(href='/blogSingle') Blog Single
             //- a.dropdown-item(href='agents-grid.html') Agents Grid
             //- a.dropdown-item(href='agent-single.html') Agent Single
-      ul.navbar-nav.float-right
-        li.nav-item
-          a.nav-link(href='/adminLogin') Admin
+    .nav
+      form.form-inline.my-2.my-lg-0
+        a.navbar-brand(href='/adminLogin') Admin
+
+
+      
           
 
    
