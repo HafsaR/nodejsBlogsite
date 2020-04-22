@@ -18,7 +18,7 @@ block content
                                 ul.list-inline.text-center.color-a
                                     li.list-inline-item.mr-2
                                         strong Author: 
-                                         span.color-text-a 
+                                         span.color-text-a #{blogModel.author}
                                     li.list-inline-item.mr-2
                                         strong Category: 
                                         span.color-text-a #{blogModel.category}
@@ -61,11 +61,11 @@ block content
                                 ul.list-comments
                                 li
                                     .comment-avatar
-                                    img(src='images/author-2.jpg', alt='')
+                                    img(src="images/author-2.jpg", alt='')
                                     each i in comment
                                         .comment-details
                                         h4.comment-author= i.name
-                                        span  
+                                        span
                                             p.comment-description
                                                 | #{i.message}
                             .form-comments

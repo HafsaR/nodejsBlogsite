@@ -35,7 +35,7 @@ const commentModel = require("../models/blog.model").commentModule;
 const contactModel = require("../models/blog.model").contactModule;
 
 router.get("/", (req, res) => {
-  var query = blogModel.find().sort({ $natural: 1 }).limit(3);
+  var query = blogModel.find().sort({_id:-1 }).limit(3);
   query.exec((err, result) => {
     if (!err) {
       res.render("index", { title: "Blog site", blogModel: result });

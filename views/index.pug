@@ -8,7 +8,7 @@ block content
       li(data-target='#carouselExampleIndicators', data-slide-to='2')
     .carousel-inner
       .carousel-item.active
-        img.d-block.w-100(src='images/img1.jpg', alt='First slide')
+        img.d-block.w-100(src='images/blog.jpg', alt='First slide')
       .carousel-item
         img.d-block.w-100(src='images/img2.jpg', alt='Second slide')
       .carousel-item
@@ -37,7 +37,6 @@ block content
                             .card-overlay
                                 .card-header-b
                                     .card-category-b
-                                    - console.log(val.title)
                                         a.category-b(href='#') #{val.category}
                                     .card-title-bs
                                         h2.title-2
@@ -46,7 +45,6 @@ block content
                                                 br
                                                 |  new
                                     .card-date
-                                    - console.log('date',val.date)
                                     -const months = ['January','February', 'March','April','May','June','July','August','September','October','November','December']
                                     -let date = val.date;
                                     -let year = date.getFullYear()
@@ -54,6 +52,5 @@ block content
                                     -let day = date.getDate()
                                     -const monthName = months[monthIndex]
                                     -const formatted = `${day } ${monthName} ${year}`
-                                    -console.log(formatted) 
                                         span.date-b= formatted
     include ./footer.pug
