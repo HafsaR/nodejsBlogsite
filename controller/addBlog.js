@@ -106,6 +106,7 @@ router.post("/addBlog/", urlencodedParser, (req, res) => {
     blogID: req.body.id,
     image: req.body.image,
     category: req.body.category,
+    author: req.body.author,
     title: req.body.title,
     description: req.body.description,
     date: new Date(Date.now()),
@@ -278,8 +279,8 @@ router.post("/blogSingle/:id/comment", urlencodedParser, (req, res) => {
     blogID: req.params.id,
     name: req.body.name,
     email: req.body.email,
-    website: req.body.website,
     message: req.body.message,
+    date: new Date(Date.now()),
   };
   commentModel.create(data, (err, docs) => {
     if (!err) {

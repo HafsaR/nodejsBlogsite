@@ -65,7 +65,7 @@ block content
                                     each i in comment
                                         .comment-details
                                         h4.comment-author= i.name
-                                        span 18 Sep 2017
+                                        span  
                                             p.comment-description
                                                 | #{i.message}
                             .form-comments
@@ -81,10 +81,6 @@ block content
                                         .form-group
                                             label(for='inputEmail1') Enter email
                                             input#inputEmail1.form-control.form-control-lg.form-control-a(type='email',name='email', placeholder='Email *', required='')
-                                    .col-md-12.mb-3
-                                        .form-group
-                                            label(for='inputUrl') Enter website
-                                            input#inputUrl.form-control.form-control-lg.form-control-a(type='url', name='website', placeholder='Website')
                                     .col-md-12.mb-3
                                         .form-group
                                             label(for='textMessage') Enter message

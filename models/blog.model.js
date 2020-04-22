@@ -40,12 +40,11 @@ var commentSchema = mongoose.Schema({
   email: {
     type: String,
   },
-  website: {
-    type: String,
-  },
+
   message: {
     type: String,
   },
+  date: {},
 });
 
 var contactSchema = mongoose.Schema({
